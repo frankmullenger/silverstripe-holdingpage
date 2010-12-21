@@ -3,7 +3,7 @@ SilverStripe Holding Page Module
 
 Maintainer Contacts
 -------------------
-*  Frank Mullenger (<frankmullenger_AT_gmail(dot)com>)
+*  Frank Mullenger (frankmullenger_AT_gmail(dot)com)
    [My Blog](http://deadlytechnology.com)
 
 Requirements

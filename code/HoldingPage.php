@@ -42,6 +42,45 @@ class HoldingPage extends Page {
       }
     }
   }
+
+  function doUnpublish() {
+    
+    //TODO return status message to inform user page has been removed from holding in config
+    
+    //If the holding page is unpublished then remove from the config automatically
+    $siteConfig = SiteConfig::current_site_config();
+    $holdingPage = $siteConfig->ShowHoldingPage();
+    if ($this == $holdingPage) {
+      
+      $siteConfig->setField('ShowHoldingPageID', 0);
+      if (!$siteConfig->write()) {
+        return false;
+      }
+      //Session::set("FormInfo.Form_EditForm.formError.message", 'Removed this page from holding');
+    }
+    parent::doUnpublish();
+    
+    /*
+    $controller = Controller::curr();
+    $request = $controller->getRequest();
+    //$response = $controller->getResponse();
+    $session = Session::get_all();
+    
+    SS_Log::log(new Exception(print_r($request, true)), SS_Log::NOTICE);
+    SS_Log::log(new Exception(print_r($session, true)), SS_Log::NOTICE);
+    
+    $holdingPage = SiteConfig::current_site_config()->ShowHoldingPage();
+    if ($this == $holdingPage) {
+      
+      Session::set("FormInfo.Form_EditForm.formError.message", 'Could not unpublish this page');
+      Session::set("FormInfo.Form_EditForm.formError.type", 'bad');
+      
+      return false;
+    }
+    
+    parent::doUnpublish();
+    */
+  }
   
 }
  
