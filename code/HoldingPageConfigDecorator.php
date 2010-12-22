@@ -24,6 +24,8 @@ class HoldingPageConfigDecorator extends DataObjectDecorator {
 
     $holdingPages = DataObject::get('HoldingPage', "`Status` = 'Published'");
     if ($holdingPages) {
+        
+      //TODO need to localise string
       $treedropdownfield = new DropdownField("ShowHoldingPageID", "Choose a holding page to display <br />(only published holding pages are available)", $holdingPages->toDropDownMap());
       $treedropdownfield->setHasEmptyDefault(true);
       $fields->addFieldToTab("Root.Main", $treedropdownfield);

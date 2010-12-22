@@ -49,6 +49,7 @@ class HoldingPage extends Page {
 
       $actions->removeByName('action_unpublish');
       
+      //TODO need to localise string
       $url = Director::absoluteURL('admin/show/root', true);
       $message = <<<EOS
 You cannot unpublish this page because it is currently being used as a holding page for your site.<br />
