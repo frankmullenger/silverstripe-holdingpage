@@ -25,6 +25,12 @@ Usage Overview
 2. Choose a holding page to display in the config area of the CMS (the top item in the Page Tree).
 3. Log in as an admin user if you want to bypass the holding page and navigate your website.
 
+Important
+---------
+If you unpublish a holding page which is currently being used as the holding page for the site 
+(you have that page selected in the config area) then after the page is unpublished it will no longer be set 
+as the holding page for the site.
+
 Known Issues
 ------------
 [GitHub Issue Tracker](https://github.com/frankmullenger/silverstripe-holdingpage/issues)
