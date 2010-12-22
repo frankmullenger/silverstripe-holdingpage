@@ -16,7 +16,7 @@ Documentation
 
 Installation Instructions
 -------------------------
-1. Place this directory in the root of your SilverStripe installation (where the folders named mysite and cms etc. exist).
+1. Place this directory in the root of your SilverStripe installation, probably best to call the folder 'holdingpage'.
 2. Visit yoursite.com/dev/build to rebuild the database.
 
 Usage Overview
