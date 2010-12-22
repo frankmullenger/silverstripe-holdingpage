@@ -1,6 +1,11 @@
 <?php
 class HoldingPageConfigDecorator extends DataObjectDecorator {
    
+  /**
+   * Define extra database field for which holding page to show
+   * 
+   * @return Array
+   */
   function extraStatics() {
     return array(
       'has_one' => array(
@@ -9,6 +14,12 @@ class HoldingPageConfigDecorator extends DataObjectDecorator {
     );
   }
 
+  /**
+   * Add a field to the config for choosing a holding page to show
+   * 
+   * @param FieldSet $fields
+   * @return Void
+   */
   public function updateCMSFields(FieldSet &$fields) {
 
     $holdingPages = DataObject::get('HoldingPage', "`Status` = 'Published'");

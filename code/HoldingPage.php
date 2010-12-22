@@ -2,28 +2,17 @@
 
 class HoldingPage extends Page {
 
-  static $db = array(
-  );
-  static $has_one = array(
-  );
-  static $allowed_children = array(
-  );
-  static $has_many = array (
-  );
   static $defaults = array(
     "ShowInMenus" => 0,
     "ShowInSearch" => 0
   );
-
-  function getCMSFields() {
-    $fields = parent::getCMSFields();
-    return $fields;
-  }
-
+  
   /**
    * If a holding page is set then redirect to it, unless current user is an admin
+   * 
+   * @return Mixed Redirects browser or just returns
    */
-  public static function redirectToHolding() {
+  public static function redirect_to_holding() {
 
     $holdingPage = SiteConfig::current_site_config()->ShowHoldingPage();
     $currentUser = Member::currentUser();
@@ -46,6 +35,8 @@ class HoldingPage extends Page {
   /**
    * Remove Unpublish button if this page is currently being used as the holding
    * page for the website.
+   * 
+   * @return FieldSet The available actions for this page.
    */
   function getCMSActions() {
     
@@ -75,6 +66,8 @@ EOS;
    * If the current page is set as the holding page then once it gets unpublished
    * it is removed as the holding page. Already removing unpublish button above so this 
    * is belt and braces.
+   * 
+   * @return Mixed False if cannot update site config
    */
   function doUnpublish() {
 
@@ -87,7 +80,6 @@ EOS;
       if (!$siteConfig->write()) {
         return false;
       }
-      //Session::set("FormInfo.Form_EditForm.formError.message", 'Removed this page from holding');
     }
     parent::doUnpublish();
   }
@@ -95,10 +87,4 @@ EOS;
 }
 
 class HoldingPage_Controller extends Page_Controller {
-
-  function init() {
-    parent::init();
-  }
-
 }
-?>
