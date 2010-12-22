@@ -10,12 +10,10 @@ class HoldingPageConfigDecorator extends DataObjectDecorator {
   }
 
   public function updateCMSFields(FieldSet &$fields) {
-    
-    //TODO only get published HoldingPages
-    
-    $holdingPages = DataObject::get('HoldingPage');
+
+    $holdingPages = DataObject::get('HoldingPage', "`Status` = 'Published'");
     if ($holdingPages) {
-      $treedropdownfield = new DropdownField("ShowHoldingPageID", "Choose a holding page to display", DataObject::get('HoldingPage')->toDropDownMap());
+      $treedropdownfield = new DropdownField("ShowHoldingPageID", "Choose a holding page to display <br />(only published holding pages are available)", $holdingPages->toDropDownMap());
       $treedropdownfield->setHasEmptyDefault(true);
       $fields->addFieldToTab("Root.Main", $treedropdownfield);
     }
