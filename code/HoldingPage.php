@@ -7,6 +7,9 @@ class HoldingPage extends Page {
     "ShowInSearch" => 0
   );
   
+  static $singular_name = "Holding Page";
+  static $plural_name = "Holding Pages";
+  
   /**
    * If a holding page is set then redirect to it, unless current user is an admin
    * 
@@ -48,13 +51,13 @@ class HoldingPage extends Page {
     if ($this->ID == $holdingPage->ID) {
 
       $actions->removeByName('action_unpublish');
-      
-      //TODO need to localise string
+
       $url = Director::absoluteURL('admin/show/root', true);
-      $message = <<<EOS
-You cannot unpublish this page because it is currently being used as a holding page for your site.<br />
-You can change the holding page here: <a href="$url">Change Holding Page</a>
-EOS;
+      $message = sprintf(_t('HoldingPage.HELP_MESSAGE', 
+        'You cannot unpublish this page because it is currently being used as a holding page for your site.<br />'.
+        'You can change the holding page here: <a href="%s">Change Holding Page</a>'
+      ),
+      $url);
       
       Session::set("FormInfo.Form_EditForm.formError.message", $message);
       Session::set("FormInfo.Form_EditForm.formError.type", 'bad');
