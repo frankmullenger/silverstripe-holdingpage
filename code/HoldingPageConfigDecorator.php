@@ -22,7 +22,7 @@ class HoldingPageConfigDecorator extends DataObjectDecorator {
    */
   public function updateCMSFields(FieldSet &$fields) {
 
-    $holdingPages = DataObject::get('HoldingPage', "`Status` = 'Published'");
+    $holdingPages = DataObject::get('HoldingPage', "'Status' = 'Published'");
     if ($holdingPages) {
 
       $treedropdownfield = new DropdownField(
