@@ -25,6 +25,11 @@ Usage Overview
 2. Choose a holding page to display in the config area of the CMS (the top item in the Page Tree).
 3. Visit the frontend of your website, log in as an admin user if you want to bypass the holding page and navigate your website.
 
+###Changing the holding page template
+If you want to change the template used by the holding page then simply create a HoldingPage.ss file in the templates/ folder
+of your theme. Flush the cache and the new holding page template should be used. Same principle applies for the Layout/ file.
+This can be useful to remove navigation elements from the page etc.
+
 Important
 ---------
 If you unpublish a holding page which is currently being used as the holding page for the site 
