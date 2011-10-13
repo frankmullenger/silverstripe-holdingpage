@@ -21,9 +21,9 @@ Installation Instructions
 
 Usage Overview
 --------------
-1. Create a new HoldingPage in the CMS area of your SilverStripe installation.
+1. Create a new HoldingPage in the CMS area of your SilverStripe installation, make sure you publish it.
 2. Choose a holding page to display in the config area of the CMS (the top item in the Page Tree).
-3. Log in as an admin user if you want to bypass the holding page and navigate your website.
+3. Visit the frontend of your website, log in as an admin user if you want to bypass the holding page and navigate your website.
 
 Important
 ---------
