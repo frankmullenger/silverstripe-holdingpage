@@ -10,9 +10,9 @@ Requirements
 ------------
 * SilverStripe 2.4.5
 
-Documentation
--------------
-[GitHub](https://github.com/frankmullenger/silverstripe-holdingpage)
+Notes
+-----
+There is a much better module [here](https://github.com/frankmullenger/silverstripe-underconstruction) that does essentially the same thing as this module but much better. Please consider using that module instead.
 
 Installation Instructions
 -------------------------
